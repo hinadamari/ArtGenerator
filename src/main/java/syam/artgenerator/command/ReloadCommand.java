@@ -27,6 +27,7 @@ public class ReloadCommand extends BaseCommand{
 
         try{
             plugin.getConfigs().loadConfig(false);
+            plugin.settingColorData();
         }catch (Exception ex){
             log.warning(logPrefix+"an error occured while trying to load the config file.");
             ex.printStackTrace();

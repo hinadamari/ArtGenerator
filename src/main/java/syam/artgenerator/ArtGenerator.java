@@ -33,9 +33,6 @@ public class ArtGenerator extends JavaPlugin{
     public final static String logPrefix = "[ArtGenerator] ";
     public final static String msgPrefix = "&6[ArtGenerator] &f";
 
-    // ** Listener **
-    //ServerListener serverListener = new ServerListener(this);
-
     // ** Commands **
     private List<BaseCommand> commands = new ArrayList<BaseCommand>();
 
@@ -44,6 +41,9 @@ public class ArtGenerator extends JavaPlugin{
 
     // ** Instance **
     private static ArtGenerator instance;
+
+    // ** Allowd Blocks **
+    public List<String> allowedBlocks = new ArrayList<String>();
 
     /**
      * プラグイン起動処理
@@ -68,19 +68,23 @@ public class ArtGenerator extends JavaPlugin{
             return;
         }
 
-        // Regist Listeners
-        //pm.registerEvents(serverListener, this);
-
         // コマンド登録
         registerCommands();
 
-        ColorData.init();
+        settingColorData();
 
         // メッセージ表示
         PluginDescriptionFile pdfFile=this.getDescription();
         log.info("["+pdfFile.getName()+"] version "+pdfFile.getVersion()+" is enabled!");
 
         setupMetrics(); // mcstats
+    }
+
+    /**
+     * 使用ブロックと色情報の設定
+     */
+    public void settingColorData() {
+    	ColorData.init(getConfig().getStringList("allowed-blocks"));
     }
 
     /**
@@ -140,7 +144,7 @@ public class ArtGenerator extends JavaPlugin{
             outer:
                 for (BaseCommand command : commands.toArray(new BaseCommand[0])){
                     String[] cmds = command.getName().split(" ");
-                    for (int i = 0; i < cmds.length; i++){
+                    for (int i = 0; i < cmds.length;){
                         if (i >= args.length || !cmds[i].equalsIgnoreCase(args[i])){
                             continue outer;
                         }
