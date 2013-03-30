@@ -4,7 +4,7 @@
  */
 package syam.artgenerator.util;
 
-import java.io.DataInputStream;
+//import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -27,8 +27,8 @@ import syam.artgenerator.ArtGenerator;
 public class FileStructure {
     // Logger
     private static final Logger log = ArtGenerator.log;
-    private static final String logPrefix = ArtGenerator.logPrefix;
-    private static final String msgPrefix = ArtGenerator.msgPrefix;
+    //private static final String logPrefix = ArtGenerator.logPrefix;
+    //private static final String msgPrefix = ArtGenerator.msgPrefix;
 
     /**
      * Create directory
@@ -92,7 +92,7 @@ public class FileStructure {
         InputStream in = null;
         InputStreamReader reader = null;
         OutputStreamWriter writer =null;
-        DataInputStream dis = null;
+        //DataInputStream dis = null;
         try{
             // get inside jar resource uri
             URL res = ArtGenerator.class.getResource(from);

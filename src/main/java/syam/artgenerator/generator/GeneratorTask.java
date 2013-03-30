@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 
@@ -18,7 +18,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import syam.artgenerator.ArtGenerator;
-import syam.artgenerator.exception.StateException;
+//import syam.artgenerator.exception.StateException;
 import syam.artgenerator.util.Actions;
 
 /**
@@ -27,9 +27,9 @@ import syam.artgenerator.util.Actions;
  */
 public class GeneratorTask implements Runnable{
     // Logger
-    private static final Logger log = ArtGenerator.log;
-    private static final String logPrefix = ArtGenerator.logPrefix;
-    private static final String msgPrefix = ArtGenerator.msgPrefix;
+    //private static final Logger log = ArtGenerator.log;
+    //private static final String logPrefix = ArtGenerator.logPrefix;
+    //private static final String msgPrefix = ArtGenerator.msgPrefix;
 
     private final ArtGenerator plugin;
 
@@ -152,7 +152,7 @@ public class GeneratorTask implements Runnable{
             return null;
         }
 
-        int prevMin = 765; //255 * 3; // possibly max value
+        int prevMin = 195075; //255^2 * 3; // possibly max value
         String closestColorBlock = null;
 
         for (Color col : ColorData.getColorMap().keySet()){
@@ -174,9 +174,9 @@ public class GeneratorTask implements Runnable{
      */
     private int getColorDiff(final Color c1, final Color c2){
         int diff = 0;
-        diff += Math.abs(c1.getRed() - c2.getRed());
-        diff += Math.abs(c1.getGreen() - c2.getGreen());
-        diff += Math.abs(c1.getBlue() - c2.getBlue());
+        diff += Math.pow(c1.getRed() - c2.getRed(), 2);
+        diff += Math.pow(c1.getGreen() - c2.getGreen(), 2);
+        diff += Math.pow(c1.getBlue() - c2.getBlue(), 2);
         return diff;
     }
 

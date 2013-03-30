@@ -34,11 +34,11 @@ public class Actions {
     private static final String logPrefix = ArtGenerator.logPrefix;
     private static final String msgPrefix = ArtGenerator.msgPrefix;
 
-    private final ArtGenerator plugin;
+    /*private final ArtGenerator plugin;
 
     public Actions(ArtGenerator plugin){
         this.plugin = plugin;
-    }
+    }*/
 
     /****************************************/
     // メッセージ送信系関数

@@ -72,7 +72,8 @@ public class GenerateCommand extends BaseCommand{
             final GeneratorTask task = new GeneratorTask(plugin, sender, dir);
             if (url != null) task.setSource(url);
             else task.setSource(file);
-            final int taskID = plugin.getServer().getScheduler().scheduleAsyncDelayedTask(plugin, task, 0L);
+            @SuppressWarnings("deprecation")
+			final int taskID = plugin.getServer().getScheduler().scheduleAsyncDelayedTask(plugin, task, 0L);
             Timer.putTask(sender.getName(), taskID);
         }
 

@@ -21,8 +21,8 @@ public class ConfigurationManager {
 
     // Logger
     private static final Logger log = ArtGenerator.log;
-    private static final String logPrefix = ArtGenerator.logPrefix;
-    private static final String msgPrefix = ArtGenerator.msgPrefix;
+    //private static final String logPrefix = ArtGenerator.logPrefix;
+    //private static final String msgPrefix = ArtGenerator.msgPrefix;
     private final ArtGenerator plugin;
 
     //private YamlConfiguration conf;
